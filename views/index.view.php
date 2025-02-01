@@ -1,4 +1,3 @@
-
 <?php require "partials/head.php"?>
 <body>
 
@@ -92,32 +91,13 @@
         <div class="row">
           <div class="col-md-12 block-3 products-wrap">
             <div class="nonloop-block-3 owl-carousel">
-
+              <?php foreach($products as $item):?>
               <div class="text-center item mb-4 item-v2">
-                <span class="onsale">Sale</span>
-                <a href="shop-single.html"> <img src="images/product_03.png" alt="Image"></a>
-                <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
-                <p class="price">$120.00</p>
+                <a href="/Projects/DawaOnline/product?item_id=<?php echo $item['item_id'] ?? '1'?>"> <img src="<?php echo $item['item_image'] ?? "images/product_03.png"?>" alt="Image"></a>
+                <h3 class="text-dark"><a href="/Projects/DawaOnline/product?item_id=<?php echo $item['item_id'] ?? '1'?>"><?php echo $item['item_name'] ?? "Unknown"?></a></h3>
+                <p class="price">$<?php echo $item['item_price'] ?? '0'?></p>
               </div>
-
-              <div class="text-center item mb-4 item-v2">
-                <a href="shop-single.html"> <img src="images/product_01.png" alt="Image"></a>
-                <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
-                <p class="price">$120.00</p>
-              </div>
-
-              <div class="text-center item mb-4 item-v2">
-                <span class="onsale">Sale</span>
-                <a href="shop-single.html"> <img src="images/product_02.png" alt="Image"></a>
-                <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
-                <p class="price">$120.00</p>
-              </div>
-
-              <div class="text-center item mb-4 item-v2">
-                <a href="shop-single.html"> <img src="images/product_04.png" alt="Image"></a>
-                <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
-                <p class="price">$120.00</p>
-              </div>
+              <?php endforeach?>
 
             </div>
           </div>
