@@ -6,7 +6,8 @@ $routes = [
     '/Projects/DawaOnline/' => "controllers/index.php",
     '/Projects/DawaOnline/about' => "controllers/about.php",
     '/Projects/DawaOnline/contact' => "controllers/contact.php",
-    '/Projects/DawaOnline/product' => "controllers/product.php"
+    '/Projects/DawaOnline/product' => "controllers/product.php",
+    '/Projects/DawaOnline/cart' => "controllers/cart.php"
 ];
 
 function routeControllers($uri, $routes) {

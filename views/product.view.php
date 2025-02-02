@@ -1,3 +1,18 @@
+<?php
+  if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if(isset($_POST['add_to_cart_submit'])) {
+      $pro = $db->query('INSERT INTO cart(user_id, item_id) VALUES (:user_id,:item_id)', [
+        ':user_id' => $_POST['user_id'],
+        ':item_id' => $_POST['item_id']
+      ]);
+
+      if($pro) {
+        header('Location: /Projects/DawaOnline/cart');
+        die();
+      }
+    }
+  }
+?>
 <?php require "partials/head.php"?>
 
 <body>
@@ -43,13 +58,18 @@
                 <input type="text" class="form-control text-center" value="1" placeholder=""
                   aria-label="Example text with button addon" aria-describedby="button-addon1">
                 <div class="input-group-append">
+                  
                   <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                 </div>
               </div>
     
             </div>
-            <p><a href="cart.html" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
-
+            <form method="post">
+              <input type="hidden" name="item_id" value="<?php echo $_GET['item_id']?>">
+              <input type="hidden" name="user_id" value="1">
+              <button type="submit" name="add_to_cart_submit" class="buy-now btn btn-sm  height-auto px-4 py-3 btn-primary">Add To Cart</button>
+            </form>
+           
             <div class="mt-5">
               <ul class="nav nav-pills mb-3 custom-pill" id="pills-tab" role="tablist">
                 <li class="nav-item">
