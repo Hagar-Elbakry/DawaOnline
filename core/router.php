@@ -4,7 +4,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 function routeControllers($uri, $routes) {
     if(array_key_exists($uri, $routes)) {
-        require $routes[$uri];
+        require base_path($routes[$uri]);
     } else {
         abort();
     }
@@ -12,7 +12,7 @@ function routeControllers($uri, $routes) {
 
 function abort($code = Response::NOT_FOUND) { 
     http_response_code($code);
-    require "views/$code.view.php";
+    require base_path("views/$code.view.php");
     die();
 }
 
