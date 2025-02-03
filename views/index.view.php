@@ -1,13 +1,13 @@
-<?php require "partials/head.php"?>
+<?php require base_path("views/partials/head.php")?>
 <body>
 
   <div class="site-wrap">
 
 
-    <?php require "partials/nav.php"?>
+    <?php require base_path("views/partials/nav.php")?>
 
     <div class="owl-carousel owl-single px-0">
-      <div class="site-blocks-cover overlay" style="background-image: url('images/hero_bg.jpg');">
+      <div class="site-blocks-cover overlay" style="background-image: url('assets/images/hero_bg.jpg');">
         <div class="container">
           <div class="row">
             <div class="col-lg-12 mx-auto align-self-center">
@@ -27,7 +27,7 @@
         </div>
       </div>
 
-      <div class="site-blocks-cover overlay" style="background-image: url('images/hero_bg_2.jpg');">
+      <div class="site-blocks-cover overlay" style="background-image: url('assets/images/hero_bg_2.jpg');">
         <div class="container">
           <div class="row">
             <div class="col-lg-12 mx-auto align-self-center">
@@ -93,8 +93,9 @@
             <div class="nonloop-block-3 owl-carousel">
               <?php foreach($products as $item):?>
               <div class="text-center item mb-4 item-v2">
-                <a href="/Projects/DawaOnline/product?item_id=<?php echo $item['item_id'] ?? '1'?>"> <img src="<?php echo $item['item_image'] ?? "images/product_03.png"?>" alt="Image"></a>
-                <h3 class="text-dark"><a href="/Projects/DawaOnline/product?item_id=<?php echo $item['item_id'] ?? '1'?>"><?php echo $item['item_name'] ?? "Unknown"?></a></h3>
+                <?php $imagePath = $item['item_image']?>
+                <a href="/product?item_id=<?php echo $item['item_id'] ?? '1'?>"> <img src="<?php echo isset($imagePath) ?  "assets/$imagePath" : 'assets/images/product_03.png'?>" alt="Image"></a>
+                <h3 class="text-dark"><a href="/product?item_id=<?php echo $item['item_id'] ?? '1'?>"><?php echo $item['item_name'] ?? "Unknown"?></a></h3>
                 <p class="price">$<?php echo $item['item_price'] ?? '0'?></p>
               </div>
               <?php endforeach?>
@@ -105,7 +106,7 @@
       </div>
     </div>
 
-    <?php require "partials/discount.php"?>
+    <?php require base_path("views/partials/discount.php")?>
 
     <div class="site-section">
       <div class="container">
@@ -120,7 +121,7 @@
         
               <div class="testimony">
                 <blockquote>
-                  <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+                  <img src="assets/images/person_1.jpg" alt="Image" class="img-fluid">
                   <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat unde.&rdquo;</p>
                 </blockquote>
 
@@ -129,7 +130,7 @@
         
               <div class="testimony">
                 <blockquote>
-                  <img src="images/person_2.jpg" alt="Image" class="img-fluid">
+                  <img src="assets/images/person_2.jpg" alt="Image" class="img-fluid">
                   <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore
                     obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat
                     unde.&rdquo;</p>
@@ -140,7 +141,7 @@
         
               <div class="testimony">
                 <blockquote>
-                  <img src="images/person_3.jpg" alt="Image" class="img-fluid">
+                  <img src="assets/images/person_3.jpg" alt="Image" class="img-fluid">
                   <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore
                     obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat
                     unde.&rdquo;</p>
@@ -151,7 +152,7 @@
         
               <div class="testimony">
                 <blockquote>
-                  <img src="images/person_4.jpg" alt="Image" class="img-fluid">
+                  <img src="assets/images/person_4.jpg" alt="Image" class="img-fluid">
                   <p>&ldquo;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo omnis voluptatem consectetur quam tempore
                     obcaecati maiores voluptate aspernatur iusto eveniet, placeat ab quod tenetur ducimus. Minus ratione sit quaerat
                     unde.&rdquo;</p>
@@ -185,10 +186,10 @@
         </div>
       </div>
     </div>
-  <?php require "partials/footer.php"?>    
+  <?php require base_path("views/partials/footer.php")?>    
   </div>
 
- <?php require "partials/script.php"?>
+ <?php require base_path("views/partials/script.php")?>
 
 </body>
 

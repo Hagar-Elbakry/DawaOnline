@@ -1,29 +1,17 @@
-<?php
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if(isset($_POST['delete_from_cart'])) {
-        $deletedItem = $db->query('DELETE FROM cart WHERE item_id = :item_id', ['item_id' => $_POST['item_id']]);
-        if($deletedItem) {
-            header('Location: /Projects/DawaOnline/cart');
-            die();
-        }
-    }
-   }
-   $cart = $db->query('SELECT * FROM cart')->fetchAll();
-?>
-<?php require "partials/head.php"?>
+<?php require base_path("views/partials/head.php")?>
 
 <body>
 
   <div class="site-wrap">
 
 
-    <?php require "partials/nav.php"?>
+    <?php require base_path("views/partials/nav.php")?>
 
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
           <div class="col-md-12 mb-0">
-            <a href="/Projects/DawaOnline/">Home</a> <span class="mx-2 mb-0">/</span> 
+            <a href="/">Home</a> <span class="mx-2 mb-0">/</span> 
             <strong class="text-black">Cart</strong>
           </div>
         </div>
@@ -53,7 +41,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                     ?>
                   <tr>
                     <td class="product-thumbnail">
-                      <img src="<?php echo $carProduct['item_image'] ?? "images/product_01.png"?>" alt="Image" class="img-fluid">
+                      <?php $imagePath = $carProduct['item_image']?>
+                      <img src="<?php echo isset($imagePath) ?  "assets/$imagePath" : 'assets/images/product_03.png'?>" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
                       <h2 class="h5 text-black"><?php echo $carProduct['item_name'] ?? "Unknown"?></h2>
@@ -95,7 +84,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <button class="btn btn-primary btn-md btn-block">Update Cart</button>
               </div>
               <div class="col-md-6">
-                <a href="/Projects/DawaOnline/" class="btn btn-outline-primary btn-md btn-block">Continue Shopping</a>
+                <a href="/" class="btn btn-outline-primary btn-md btn-block">Continue Shopping</a>
               </div>
             </div>
             <div class="row">
@@ -149,10 +138,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       </div>
     </div>
 
-    <?php require "partials/footer.php"?>
+    <?php require base_path("views/partials/footer.php")?>
   </div>
 
-  <?php require "partials/script.php"?>
+  <?php require base_path("views/partials/script.php")?>
 
 </body>
 

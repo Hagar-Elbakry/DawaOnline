@@ -1,11 +1,11 @@
-<?php require "partials/head.php"?>
+<?php require base_path("views/partials/head.php")?>
 
 <body>
 
   <div class="site-wrap">
 
 
-  <?php require "partials/nav.php"?>
+  <?php require base_path("views/partials/nav.php")?>
 
     <div class="bg-light py-3">
       <div class="container">
@@ -101,10 +101,10 @@
       </div>
       
     </div>
-    <?php require "partials/footer.php"?>    
+    <?php require base_path("views/partials/footer.php")?>    
   </div>
 
-  <?php require "partials/script.php"?>
+  <?php require base_path("views/partials/script.php")?>
 
 </body>
 

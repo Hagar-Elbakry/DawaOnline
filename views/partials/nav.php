@@ -13,13 +13,13 @@
         <div class="d-flex align-items-center justify-content-between">
           <div class="logo">
             <div class="site-logo">
-              <a href="/Projects/DawaOnline/" class="js-logo-clone"><strong class="text-primary">Dawa</strong>Online</a>
+              <a href="/" class="js-logo-clone"><strong class="text-primary">Dawa</strong>Online</a>
             </div>
           </div>
           <div class="main-nav d-none d-lg-block">
             <nav class="site-navigation text-right text-md-center" role="navigation">
               <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <li class="active"><a href="/Projects/DawaOnline/">Home</a></li>
+                <li class="active"><a href="/">Home</a></li>
                 <li><a href="shop.html">Store</a></li>
                 <li class="has-children">
                   <a href="#">Products</a>
@@ -39,14 +39,14 @@
                     
                   </ul>
                 </li>
-                <li><a href="/Projects/DawaOnline/about">About</a></li>
-                <li><a href="/Projects/DawaOnline/contact">Contact</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
               </ul>
             </nav>
           </div>
           <div class="icons">
             <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
-            <a href="/Projects/DawaOnline/cart" class="icons-btn d-inline-block bag">
+            <a href="/cart" class="icons-btn d-inline-block bag">
               <span class="icon-shopping-bag"></span>
               <span class="number">2</span>
             </a>

@@ -1,4 +1,4 @@
-<div class="site-section bg-image overlay" style="background-image: url('images/hero_bg_2.jpg');">
+<div class="site-section bg-image overlay" style="background-image: url('assets/images/hero_bg_2.jpg');">
       <div class="container">
         <div class="row justify-content-center text-center">
          <div class="col-lg-7">

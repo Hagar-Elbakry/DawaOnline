@@ -1,31 +1,17 @@
-<?php
-  if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if(isset($_POST['add_to_cart_submit'])) {
-      $pro = $db->query('INSERT INTO cart(user_id, item_id) VALUES (:user_id,:item_id)', [
-        ':user_id' => $_POST['user_id'],
-        ':item_id' => $_POST['item_id']
-      ]);
 
-      if($pro) {
-        header('Location: /Projects/DawaOnline/cart');
-        die();
-      }
-    }
-  }
-?>
-<?php require "partials/head.php"?>
+<?php require base_path("views/partials/head.php")?>
 
 <body>
 
   <div class="site-wrap">
 
 
-    <?php require "partials/nav.php"?>
+    <?php require base_path("views/partials/nav.php")?>
 
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="/Projects/DawaOnline/">Home</a> <span class="mx-2 mb-0">/</span> <a
+          <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span> <a
               href="shop.html">Store</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"><?php echo $product['item_name'] ?? 'Unknown'?></strong></div>
         </div>
       </div>
@@ -36,7 +22,8 @@
         <div class="row">
           <div class="col-md-5 mr-auto">
             <div class="border text-center">
-              <img src="<?php echo $product['item_image'] ?? "images/product_01.png"?>" alt="Image" class="img-fluid p-5">
+              <?php $imagePath = $product['item_image']?>
+              <img src="<?php echo isset($imagePath) ?  "assets/$imagePath" : 'assets/images/product_03.png'?>" alt="Image" class="img-fluid p-5">
             </div>
           </div>
           <div class="col-md-6">
@@ -145,12 +132,12 @@
       </div>
     </div>
 
-   <?php require "partials/discount.php"?>
+   <?php require base_path("views/partials/discount.php")?>
     
-   <?php require "partials/footer.php"?>
+   <?php require base_path("views/partials/footer.php")?>
   </div>
 
- <?php require "partials/script.php"?>
+ <?php require base_path("views/partials/script.php")?>
 </body>
 
 </html>

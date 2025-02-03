@@ -1,6 +1,8 @@
 <?php
-$config = require "config.php";
+$config = require base_path("config.php");
 $db = new Database($config['database']);
 
 $products = $db->query('SELECT * FROM product')->fetchAll();
-require "views/index.view.php";
+view("index.view.php", [
+    'products' =>$products
+]);

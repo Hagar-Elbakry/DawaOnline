@@ -1,13 +1,13 @@
-<?php require "partials/head.php"?>
+<?php require base_path("views/partials/head.php")?>
 
 <body>
 
   <div class="site-wrap">
 
 
-  <?php require "partials/nav.php"?>
+  <?php require base_path("views/partials/nav.php")?>
 
-    <div class="site-blocks-cover overlay" style="background-image: url('images/hero_bg_2.jpg');">
+    <div class="site-blocks-cover overlay" style="background-image: url('assets/images/hero_bg_2.jpg');">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 mx-auto align-self-center">
@@ -64,7 +64,7 @@
             <div class="block-38 text-center">
               <div class="block-38-img">
                 <div class="block-38-header">
-                  <img src="images/person_1.jpg" alt="Image placeholder" class="mb-4">
+                  <img src="assets/images/person_1.jpg" alt="Image placeholder" class="mb-4">
                   <h3 class="block-38-heading h4">Elizabeth Graham</h3>
                   <p class="block-38-subheading">CEO/Co-Founder</p>
                 </div>
@@ -79,7 +79,7 @@
             <div class="block-38 text-center">
               <div class="block-38-img">
                 <div class="block-38-header">
-                  <img src="images/person_2.jpg" alt="Image placeholder" class="mb-4">
+                  <img src="assets/images/person_2.jpg" alt="Image placeholder" class="mb-4">
                   <h3 class="block-38-heading h4">Jennifer Greive</h3>
                   <p class="block-38-subheading">Co-Founder</p>
                 </div>
@@ -94,7 +94,7 @@
             <div class="block-38 text-center">
               <div class="block-38-img">
                 <div class="block-38-header">
-                  <img src="images/person_3.jpg" alt="Image placeholder" class="mb-4">
+                  <img src="assets/images/person_3.jpg" alt="Image placeholder" class="mb-4">
                   <h3 class="block-38-heading h4">Patrick Marx</h3>
                   <p class="block-38-subheading">Marketing</p>
                 </div>
@@ -109,7 +109,7 @@
             <div class="block-38 text-center">
               <div class="block-38-img">
                 <div class="block-38-header">
-                  <img src="images/person_4.jpg" alt="Image placeholder" class="mb-4">
+                  <img src="assets/images/person_4.jpg" alt="Image placeholder" class="mb-4">
                   <h3 class="block-38-heading h4">Mike Coolbert</h3>
                   <p class="block-38-subheading">Sales Manager</p>
                 </div>
@@ -126,7 +126,7 @@
             <div class="block-38 text-center">
               <div class="block-38-img">
                 <div class="block-38-header">
-                  <img src="images/person_1.jpg" alt="Image placeholder" class="mb-4">
+                  <img src="assets/images/person_1.jpg" alt="Image placeholder" class="mb-4">
                   <h3 class="block-38-heading h4">Elizabeth Graham</h3>
                   <p class="block-38-subheading">CEO/Co-Founder</p>
                 </div>
@@ -141,7 +141,7 @@
             <div class="block-38 text-center">
               <div class="block-38-img">
                 <div class="block-38-header">
-                  <img src="images/person_2.jpg" alt="Image placeholder" class="mb-4">
+                  <img src="assets/images/person_2.jpg" alt="Image placeholder" class="mb-4">
                   <h3 class="block-38-heading h4">Jennifer Greive</h3>
                   <p class="block-38-subheading">Co-Founder</p>
                 </div>
@@ -156,7 +156,7 @@
       </div>
     </div>
 
-    <?php require "partials/discount.php"?>
+    <?php require base_path("views/partials/discount.php")?>
 
     <div class="site-section site-section-sm site-blocks-1 border-0" data-aos="fade">
       <div class="container">
@@ -195,10 +195,10 @@
       </div>
     </div>
 
-    <?php require "partials/footer.php"?>    
+    <?php require base_path("views/partials/footer.php")?>    
   </div>
 
-  <?php require "partials/script.php"?>
+  <?php require base_path("views/partials/script.php")?>
 
 </body>
 
