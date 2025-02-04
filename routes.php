@@ -13,6 +13,6 @@ $router->delete('/cart', 'cart/destroy.php');
 $router->get('/register', 'registration/create.php')->only('guest');
 $router->post('/register', 'registration/store.php');
 
-$router->get('/session', 'session/create.php')->only('guest');
+$router->get('/login', 'session/create.php')->only('guest');
 $router->post('/session', 'session/store.php');
 $router->delete('/session', 'session/destroy.php')->only('auth');

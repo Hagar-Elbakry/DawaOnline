@@ -56,7 +56,7 @@
               <?php else :?>
               <div class="d-flex align-items-center">
                   <a href="/register" class="btn btn-primary btn-sm mr-2">Register</a></li>
-                  <a href="/session"  class="btn btn-secondary btn-sm">Log In</a></li>
+                  <a href="/login"  class="btn btn-secondary btn-sm">Log In</a></li>
               </div>
               <?php endif;?>
             <a href="/cart" class="icons-btn d-inline-block bag">
