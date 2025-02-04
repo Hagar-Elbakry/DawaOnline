@@ -9,3 +9,6 @@ $router->get('/product', 'controllers/product.php');
 $router->get('/cart', 'controllers/cart/show.php');
 $router->post('/cart', 'controllers/cart/store.php');
 $router->delete('/cart', 'controllers/cart/destroy.php');
+
+$router->get('/register', 'controllers/registration/create.php');
+$router->post('/register', 'controllers/registration/store.php');

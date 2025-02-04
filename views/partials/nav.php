@@ -45,7 +45,12 @@
             </nav>
           </div>
           <div class="icons">
-            <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
+
+              <?php if($_SESSION['user'] ?? false) : ?>
+                  <p class="mb-0"> <strong>You are logged in!</strong></p>
+              <?php else :?>
+              <li style="list-style: none"><a href="/register" style="text-decoration: underline">Register</a></li>
+              <?php endif;?>
             <a href="/cart" class="icons-btn d-inline-block bag">
               <span class="icon-shopping-bag"></span>
               <span class="number">2</span>
