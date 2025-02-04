@@ -1,5 +1,6 @@
 <?php
 
+use Core\Session;
 
 function urlIs($value)
 {
@@ -17,4 +18,8 @@ function view($path, $attributes = []) {
 function redirect($path) {
     header('Location: ' . $path);
     die();
+}
+
+function old($key, $default = '') {
+   return Session::get('old')[$key] ?? $default;
 }

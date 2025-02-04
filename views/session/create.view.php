@@ -32,7 +32,7 @@
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <label for="email" class="text-black">Email <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="email" name="email" placeholder="">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="" value="<?php echo old('email')?>">
                                 </div>
                                 <div class="col-md-12">
                                     <label for="password" class="text-black">Password <span class="text-danger">*</span></label>
