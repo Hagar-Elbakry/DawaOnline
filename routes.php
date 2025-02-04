@@ -1,18 +1,18 @@
 <?php
 
 
-$router->get('/', 'controllers/index.php');
-$router->get('/about', 'controllers/about.php');
-$router->get('/contact', 'controllers/contact.php');
-$router->get('/product', 'controllers/product.php')->only('auth');
+$router->get('/', 'index.php');
+$router->get('/about', 'about.php');
+$router->get('/contact', 'contact.php');
+$router->get('/product', 'product.php')->only('auth');
 
-$router->get('/cart', 'controllers/cart/show.php')->only('auth');
-$router->post('/cart', 'controllers/cart/store.php');
-$router->delete('/cart', 'controllers/cart/destroy.php');
+$router->get('/cart', 'cart/show.php')->only('auth');
+$router->post('/cart', 'cart/store.php');
+$router->delete('/cart', 'cart/destroy.php');
 
-$router->get('/register', 'controllers/registration/create.php')->only('guest');
-$router->post('/register', 'controllers/registration/store.php');
+$router->get('/register', 'registration/create.php')->only('guest');
+$router->post('/register', 'registration/store.php');
 
-$router->get('/session', 'controllers/session/create.php')->only('guest');
-$router->post('/session', 'controllers/session/store.php');
-$router->delete('/session', 'controllers/session/destroy.php')->only('auth');
+$router->get('/session', 'session/create.php')->only('guest');
+$router->post('/session', 'session/store.php');
+$router->delete('/session', 'session/destroy.php')->only('auth');
