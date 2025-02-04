@@ -19,7 +19,7 @@
           <div class="main-nav d-none d-lg-block">
             <nav class="site-navigation text-right text-md-center" role="navigation">
               <ul class="site-menu js-clone-nav d-none d-lg-block">
-                <li class="active"><a href="/">Home</a></li>
+                <li class=<?php if(urlIs('/')){echo "active";}?>><a href="/">Home</a></li>
                 <li><a href="shop.html">Store</a></li>
                 <li class="has-children">
                   <a href="#">Products</a>
@@ -39,7 +39,7 @@
                     
                   </ul>
                 </li>
-                <li><a href="/about">About</a></li>
+                <li class=<?php if(urlIs('/about')){echo "active";}?>><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
               </ul>
             </nav>
@@ -48,8 +48,16 @@
 
               <?php if($_SESSION['user'] ?? false) : ?>
                   <p class="mb-0"> <strong>You are logged in!</strong></p>
+                    <form action="/session" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-primary btn-sm ml-4">Log Out</button>
+                    </form>
+
               <?php else :?>
-              <li style="list-style: none"><a href="/register" style="text-decoration: underline">Register</a></li>
+              <div class="d-flex align-items-center">
+                  <a href="/register" class="btn btn-primary btn-sm mr-2">Register</a></li>
+                  <a href="/session"  class="btn btn-secondary btn-sm">Log In</a></li>
+              </div>
               <?php endif;?>
             <a href="/cart" class="icons-btn d-inline-block bag">
               <span class="icon-shopping-bag"></span>
