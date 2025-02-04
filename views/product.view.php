@@ -51,7 +51,7 @@
               </div>
     
             </div>
-            <form method="post">
+            <form method="post" action="/cart">
               <input type="hidden" name="item_id" value="<?php echo $_GET['item_id']?>">
               <input type="hidden" name="user_id" value="1">
               <button type="submit" name="add_to_cart_submit" class="buy-now btn btn-sm  height-auto px-4 py-3 btn-primary">Add To Cart</button>

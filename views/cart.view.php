@@ -63,6 +63,7 @@
                     </td>
                     <td>$49.00</td>
                     <form method="post">
+                        <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="item_id" value="<?php echo $carProduct['item_id']?>">
                     <td><button type="submit" name="delete_from_cart" class="btn btn-primary height-auto btn-sm">X</button></td>
                     </form>
