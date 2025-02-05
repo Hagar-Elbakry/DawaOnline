@@ -29,8 +29,6 @@
                     <th class="product-thumbnail">Image</th>
                     <th class="product-name">Product</th>
                     <th class="product-price">Price</th>
-                    <th class="product-quantity">Quantity</th>
-                    <th class="product-total">Total</th>
                     <th class="product-remove">Remove</th>
                   </tr>
                 </thead>
@@ -38,6 +36,7 @@
                     <?php foreach($cart as $item):
                         $carProducts = $db->query('SELECT * FROM product WHERE item_id = :item_id', [':item_id' => $item['item_id']])->fetchAll();
                         foreach($carProducts as $carProduct):
+                            $prices [] = $carProduct['item_price'];
                     ?>
                   <tr>
                     <td class="product-thumbnail">
@@ -48,20 +47,6 @@
                       <h2 class="h5 text-black"><?php echo $carProduct['item_name'] ?? "Unknown"?></h2>
                     </td>
                     <td>$<?php echo $carProduct['item_price'] ?? '0'?></td>
-                    <td>
-                      <div class="input-group mb-3" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                        </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                        </div>
-                      </div>
-    
-                    </td>
-                    <td>$49.00</td>
                     <form method="post" action="/cart">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="item_id" value="<?php echo $carProduct['item_id']?>">
@@ -81,10 +66,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="row mb-5">
-              <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-primary btn-md btn-block">Update Cart</button>
-              </div>
-              <div class="col-md-6">
+              <div class="col-md-5">
                 <a href="/" class="btn btn-outline-primary btn-md btn-block">Continue Shopping</a>
               </div>
             </div>
@@ -106,15 +88,7 @@
               <div class="col-md-7">
                 <div class="row">
                   <div class="col-md-12 text-right border-bottom mb-5">
-                    <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-md-6">
-                    <span class="text-black">Subtotal</span>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <h3 class="text-black h4 text-uppercase mr-5">Cart Totals</h3>
                   </div>
                 </div>
                 <div class="row mb-5">
@@ -122,13 +96,13 @@
                     <span class="text-black">Total</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black"><?php echo getTotal($prices ?? [])?></strong>
                   </div>
                 </div>
     
                 <div class="row">
                   <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location='checkout.html'">Proceed To
+                    <button class="btn btn-primary btn-lg btn-block">Proceed To
                       Checkout</button>
                   </div>
                 </div>

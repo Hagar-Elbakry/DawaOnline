@@ -7,7 +7,7 @@ class Authenticator {
 
     public function attemp($email, $password) {
         $user = (App::resolve(Database::class))->query('SELECT * FROM users WHERE email = :email',[
-            ':email' => $email,
+            ':email' => $email
         ])->fetch();
 
         if($user) {
@@ -23,6 +23,7 @@ class Authenticator {
 
    public function login($user) {
         $_SESSION['user'] = [
+            'id' => $user['user_id'],
             'email' => $user['email']
         ];
 

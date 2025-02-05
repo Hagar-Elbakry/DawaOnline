@@ -9,9 +9,9 @@ $password = $_POST['password'];
 
 $form = LoginForm::validate(['email' => $email, 'password' => $password]);
 
-$signedUp = (new Authenticator)->attemp($email, $password);
+$signedIn = (new Authenticator)->attemp($email, $password);
 
-    if(!$signedUp) {
+    if(!$signedIn) {
         $form->error('email', 'Invalid email or password.')->throw();
     }
 

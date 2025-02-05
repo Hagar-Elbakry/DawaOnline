@@ -1,5 +1,15 @@
+<?php
+use Core\App;
+use Core\Database;
+use Core\Session;
 
-<?php require base_path("views/partials/head.php")?>
+$db = App::resolve(Database::class);
+$cart = $db->query('SELECT * FROM cart')->fetchAll();
+$itemsId = array_map(function($item){
+    return $item['item_id'];
+}, $cart);
+require base_path("views/partials/head.php");
+?>
 
 <body>
 
@@ -11,8 +21,8 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span> <a
-              href="shop.html">Store</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"><?php echo $product['item_name'] ?? 'Unknown'?></strong></div>
+          <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span>
+              <strong class="text-black"><?php echo $product['item_name'] ?? 'Unknown'?></strong></div>
         </div>
       </div>
     </div>
@@ -35,26 +45,20 @@
 
             <p><strong class="text-primary h4">$<?php echo $product['item_price'] ?? '0'?></strong></p>
 
-            
-            
-            <div class="mb-5">
-              <div class="input-group mb-3" style="max-width: 220px;">
-                <div class="input-group-prepend">
-                  <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                </div>
-                <input type="text" class="form-control text-center" value="1" placeholder=""
-                  aria-label="Example text with button addon" aria-describedby="button-addon1">
-                <div class="input-group-append">
-                  
-                  <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                </div>
-              </div>
-    
-            </div>
+
             <form method="post" action="/cart">
               <input type="hidden" name="item_id" value="<?php echo $_GET['item_id']?>">
-              <input type="hidden" name="user_id" value="1">
-              <button type="submit" name="add_to_cart_submit" class="buy-now btn btn-sm  height-auto px-4 py-3 btn-primary">Add To Cart</button>
+              <input type="hidden" name="user_id" value="<?php echo Session::get('user')['id']?>">
+                <?php if(in_array($_GET['item_id'], $itemsId)):
+                    echo '<button type="submit" name="add_to_cart_submit" class="buy-now btn btn-sm  height-auto px-4 py-3 btn-primary" disabled>In Cart</button>';
+                ?>
+
+                <?php else:
+                    echo '<button type="submit" name="add_to_cart_submit" class="buy-now btn btn-sm  height-auto px-4 py-3 btn-primary">Add To Cart</button>';
+                ?>
+
+                <?php endif?>
+
             </form>
            
             <div class="mt-5">
@@ -132,7 +136,6 @@
       </div>
     </div>
 
-   <?php require base_path("views/partials/discount.php")?>
     
    <?php require base_path("views/partials/footer.php")?>
   </div>

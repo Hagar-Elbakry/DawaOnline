@@ -1,13 +1,14 @@
-<div class="site-navbar py-2">
+<?php
+use Core\App;
+use Core\Database;
+use Core\Session;
 
-      <div class="search-wrap">
-        <div class="container">
-          <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
-          <form action="#" method="post">
-            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
-          </form>
-        </div>
-      </div>
+$db = App::resolve(Database::class);
+$cart = $db->query('SELECT * FROM cart WHERE user_id= :id', [
+        ':id' => Session::get('user')['id'] ?? '1'
+])->fetchAll();
+?>
+<div class="site-navbar py-2">
 
       <div class="container">
         <div class="d-flex align-items-center justify-content-between">
@@ -20,27 +21,7 @@
             <nav class="site-navigation text-right text-md-center" role="navigation">
               <ul class="site-menu js-clone-nav d-none d-lg-block">
                 <li class=<?php if(urlIs('/')){echo "active";}?>><a href="/">Home</a></li>
-                <li><a href="shop.html">Store</a></li>
-                <li class="has-children">
-                  <a href="#">Products</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Supplements</a></li>
-                    <li class="has-children">
-                      <a href="#">Vitamins</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Supplements</a></li>
-                        <li><a href="#">Vitamins</a></li>
-                        <li><a href="#">Diet &amp; Nutrition</a></li>
-                        <li><a href="#">Tea &amp; Coffee</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Diet &amp; Nutrition</a></li>
-                    <li><a href="#">Tea &amp; Coffee</a></li>
-                    
-                  </ul>
-                </li>
                 <li class=<?php if(urlIs('/about')){echo "active";}?>><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
               </ul>
             </nav>
           </div>
@@ -53,18 +34,17 @@
                         <button type="submit" class="btn btn-primary btn-sm ml-4">Log Out</button>
                     </form>
 
+                  <a href="/cart" class="icons-btn d-inline-block bag">
+                      <span class="icon-shopping-bag"></span>
+                      <span class="number"><?php echo count($cart)?></span>
+                  </a>
               <?php else :?>
               <div class="d-flex align-items-center">
                   <a href="/register" class="btn btn-primary btn-sm mr-2">Register</a></li>
                   <a href="/login"  class="btn btn-secondary btn-sm">Log In</a></li>
               </div>
               <?php endif;?>
-            <a href="/cart" class="icons-btn d-inline-block bag">
-              <span class="icon-shopping-bag"></span>
-              <span class="number">2</span>
-            </a>
-            <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
-                class="icon-menu"></span></a>
+
           </div>
         </div>
       </div>

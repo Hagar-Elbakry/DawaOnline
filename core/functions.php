@@ -12,7 +12,7 @@ function base_path($path) {
 
 function view($path, $attributes = []) {
     extract($attributes);
-   return require base_path("views/$path");
+    require base_path("views/$path");
 }
 
 function redirect($path) {
@@ -22,4 +22,10 @@ function redirect($path) {
 
 function old($key, $default = '') {
    return Session::get('old')[$key] ?? $default;
+}
+
+function getTotal($prices) {
+
+    return array_sum($prices);
+
 }
