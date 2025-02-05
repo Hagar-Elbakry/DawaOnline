@@ -29,26 +29,18 @@
 ## Project Structure
 
   ```
-  ├── .gitignore
-  ├── .idea/
-  │   ├── .gitignore
-  │   ├── DawaOnline.iml
-  │   ├── inspectionProfiles/
-  │   ├── modules.xml
-  │   ├── php.xml
-  │   ├── vcs.xml
-  │   ├── workspace.xml
   ├── bootstrap.php
   ├── composer.json
   ├── composer.lock
   ├── config.php
+  ├── routes.php
   ├── core/
+  |  ├── Middleware/
   │   ├── App.php
   │   ├── Authenticator.php
   │   ├── Container.php
   │   ├── Database.php
   │   ├── functions.php
-  │   ├── middleware/
   │   ├── Response.php
   │   ├── Router.php
   │   ├── Session.php
@@ -60,16 +52,7 @@
   ├── public/
   │   ├── assets/
   │   ├── index.php
-  ├── routes.php
   ├── vendor/
-  │   ├── autoload.php
-  │   ├── brianium/
-  │   ├── composer/
-  │   ├── doctrine/
-  │   ├── fidry/
-  │   ├── filp/
-  │   ├── illuminate/
-  │   ├── …
   ├── views/
   ```
 
