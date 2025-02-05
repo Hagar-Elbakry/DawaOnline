@@ -35,7 +35,7 @@
   ├── config.php
   ├── routes.php
   ├── core/
-  |  ├── Middleware/
+  |   ├── Middleware/
   │   ├── App.php
   │   ├── Authenticator.php
   │   ├── Container.php
