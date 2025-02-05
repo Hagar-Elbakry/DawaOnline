@@ -56,6 +56,10 @@ class Router {
        return $this;
     }
 
+    public function previousURL() {
+        return $_SERVER['HTTP_REFERER'];
+    }
+
     public function abort($code = Response::NOT_FOUND) {
         http_response_code($code);
         require base_path("views/$code.view.php");
