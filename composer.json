@@ -1,0 +1,17 @@
+{
+    "name": "hagar-elbakry/dawa-online",
+    "authors": [
+        {
+            "name": "Hagar Elbakry",
+            "email": "hagarelbakry12@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\" : "core/",
+            "Http\\" : "Http/"
+
+        }
+    }
+}
