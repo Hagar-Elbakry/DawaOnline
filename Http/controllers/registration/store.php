@@ -38,6 +38,10 @@ if($user) {
         ':password' => password_hash($password, PASSWORD_BCRYPT)
     ]);
 
+    $user = $db->query('SELECT * FROM users WHERE email = :email',[
+        ':email' => $email,
+    ])->fetch();
+
     (new Authenticator)->login($user);
     header('Location: /');
     die();
